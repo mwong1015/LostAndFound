@@ -79,7 +79,7 @@ public class loginActivity extends AppCompatActivity {
             }
         }
         else{
-            Toast.makeText(loginActivity.this, "google sign in error", Toast.LENGTH_LONG).show();
+            Toast.makeText(loginActivity.this, "sign in failed", Toast.LENGTH_LONG).show();
         }
     }
     private void firebaseAuthWithGoogle(String idToken) {
@@ -92,7 +92,7 @@ public class loginActivity extends AppCompatActivity {
                     Toast.makeText(loginActivity.this, "Google signed up successfully", Toast.LENGTH_LONG).show();
 
                 }else {
-                    Toast.makeText(loginActivity.this, "this shouldn't fail", Toast.LENGTH_LONG).show();
+                    Toast.makeText(loginActivity.this, "Auth failed", Toast.LENGTH_LONG).show();
                 }
             }
         });

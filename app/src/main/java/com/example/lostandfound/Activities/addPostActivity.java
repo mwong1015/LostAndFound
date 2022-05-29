@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.lostandfound.R;
 
-public class itemTypeActivity extends AppCompatActivity {
+public class addPostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_type);
+        setContentView(R.layout.activity_add_post);
     }
 }

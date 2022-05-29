@@ -4,12 +4,14 @@ public class lostItem {
     String type;
     String location;
     String description;
+    String UUID;
     String claimerID;
 
-    public lostItem(String type, String location, String description, String claimerID) {
+    public lostItem(String type, String location, String description, String UUID, String claimerID) {
         this.type = type;
         this.location = location;
         this.description = description;
+        this.UUID = UUID;
         this.claimerID = claimerID;
     }
 
@@ -44,6 +46,12 @@ public class lostItem {
     public void setClaimerID(String claimerID) {
         this.claimerID = claimerID;
     }
+    public String getUUID() {
+        return UUID;
+    }
 
+    public void setUUID(String UUID) {
+        this.UUID = UUID;
+    }
 
 }

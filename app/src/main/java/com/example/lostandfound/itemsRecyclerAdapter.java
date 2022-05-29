@@ -1,39 +1,59 @@
 package com.example.lostandfound;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lostandfound.classes.lostItem;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
 public class itemsRecyclerAdapter extends RecyclerView.Adapter<itemsRecyclerViewHolder> {
 
     private ArrayList<lostItem> lostItemList;
+    private Context mContext;
 
-    public itemsRecyclerAdapter(ArrayList<lostItem> lostItemList){
-        this.lostItemList=lostItemList
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-
+    public itemsRecyclerAdapter(ArrayList<lostItem> lostItemList, Context mContext){
+        this.lostItemList=lostItemList;
+        this.mContext = mContext;
     }
 
     @NonNull
     @Override
     public itemsRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_view,parent,false);
+        itemsRecyclerViewHolder itemViewHolder = new itemsRecyclerViewHolder(itemView);
+        mContext = parent.getContext();
+        return itemViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull itemsRecyclerViewHolder holder, int position) {
+//        StorageReference photoRef = storageRef.child(recommendationList.get(position).getID());
+//        final long ONE_MEGABYTE = 1024 * 1024;
+//        photoRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+//            @Override
+//            public void onSuccess(byte[] bytes) {
+//                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+//                holder.itemPhoto.setImageBitmap(bmp);
+//            }
+//        });
+        holder.itemName.setText("good");
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lostItemList.size();
     }
 }

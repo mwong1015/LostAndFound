@@ -3,15 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_add_lost_item.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25766811558351294" />
+        <entry key="app/src/main/res/layout/activity_add_lost_item.xml" value="0.22729421315214493" />
+        <entry key="app/src/main/res/layout/activity_add_post.xml" value="0.2307700791914648" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.8755091192903918" />
         <entry key="app/src/main/res/layout/activity_item_profile.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_item_type.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.32257787431574936" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.18032669977811294" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/activity_notice_board.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_more_types.xml" value="0.20009758658476726" />
+        <entry key="app/src/main/res/layout/activity_notice_board.xml" value="0.16181685597101514" />
         <entry key="app/src/main/res/layout/activity_post_notice.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/activity_post_profile.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/activity_post_profile.xml" value="0.22386103569979082" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1968193186536377" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.23540663359004207" />
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.14361702127659576" />
