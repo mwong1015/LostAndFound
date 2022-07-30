@@ -7,26 +7,28 @@
     tools:context=".Activities.moreTypesActivity">
 
     <TextView
-        android:id="@+id/clothingTextView"
+        android:id="@+id/uniformTextView"
         android:layout_width="203dp"
         android:layout_height="390dp"
         android:gravity="center"
-        android:text="Clothing"
+        android:onClick="onClickUniform"
+        android:text="Uniform"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005" />
+        app:layout_constraintVertical_bias="0.011" />
 
     <TextView
         android:id="@+id/miscellaneousTextView"
         android:layout_width="205dp"
         android:layout_height="337dp"
         android:gravity="center"
+        android:onClick="onClickMiscellaneous"
         android:text="Miscellaneous"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -43,6 +45,7 @@
         android:layout_width="203dp"
         android:layout_height="390dp"
         android:gravity="center"
+        android:onClick="onClickBooks"
         android:text="Books"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -100,6 +103,7 @@
         android:layout_width="205dp"
         android:layout_height="337dp"
         android:gravity="center"
+        android:onClick="onClickWaterBottles"
         android:text="Water Bottles/ Lunch Boxes"
         android:textAlignment="center"
         android:textColor="#000000"

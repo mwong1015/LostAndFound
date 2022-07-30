@@ -1,20 +1,34 @@
 package com.example.lostandfound.classes;
 
-public class lostItem {
+import java.io.Serializable;
+
+public class lostItem implements Serializable{
     String type;
     String location;
     String description;
     String UUID;
     String claimerID;
+    String dateTime;
 
-    public lostItem(String type, String location, String description, String UUID, String claimerID) {
+    public lostItem() {
+
+    }
+    public lostItem(String type, String location, String description, String UUID, String claimerID, String dateTime) {
         this.type = type;
         this.location = location;
         this.description = description;
         this.UUID = UUID;
         this.claimerID = claimerID;
+        this.dateTime = dateTime;
     }
 
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
     public String getType() {
         return type;
     }

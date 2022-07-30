@@ -78,9 +78,6 @@ public class loginActivity extends AppCompatActivity {
                 Log.w(TAG, "task failed", e);
             }
         }
-        else{
-            Toast.makeText(loginActivity.this, "sign in failed", Toast.LENGTH_LONG).show();
-        }
     }
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);

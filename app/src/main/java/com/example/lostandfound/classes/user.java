@@ -5,6 +5,9 @@ public class user {
     String id;
     String gmail;
 
+    public user(){
+
+    }
     public user(String id, String gmail) {
         this.id = id;
         this.gmail = gmail;

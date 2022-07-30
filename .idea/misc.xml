@@ -5,20 +5,25 @@
       <map>
         <entry key="app/src/main/res/layout/activity_add_lost_item.xml" value="0.22729421315214493" />
         <entry key="app/src/main/res/layout/activity_add_post.xml" value="0.2307700791914648" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.8755091192903918" />
-        <entry key="app/src/main/res/layout/activity_item_profile.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.19535609631942633" />
+        <entry key="app/src/main/res/layout/activity_item_list.xml" value="0.16802536231884058" />
+        <entry key="app/src/main/res/layout/activity_item_profile.xml" value="0.2684858095254082" />
         <entry key="app/src/main/res/layout/activity_item_type.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.18032669977811294" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_more_types.xml" value="0.20009758658476726" />
         <entry key="app/src/main/res/layout/activity_notice_board.xml" value="0.16181685597101514" />
+        <entry key="app/src/main/res/layout/activity_post_board.xml" value="0.18840579710144928" />
         <entry key="app/src/main/res/layout/activity_post_notice.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_post_profile.xml" value="0.22386103569979082" />
+        <entry key="app/src/main/res/layout/content_post_board.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1968193186536377" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.23540663359004207" />
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.14361702127659576" />
-        <entry key="app/src/main/res/layout/item_row_view.xml" value="0.28835396414599057" />
+        <entry key="app/src/main/res/layout/item_row_view.xml" value="0.52120232635814" />
+        <entry key="app/src/main/res/layout/post_view.xml" value="0.18342391304347827" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.2953125" />
+        <entry key="app/src/main/res/xml/provider_paths.xml" value="0.17447916666666666" />
       </map>
     </option>
   </component>

@@ -21,5 +21,6 @@
         <item>Miscellaneous</item>
 
     </string-array>
+    <string name="title_activity_post_board">postBoardActivity</string>
 
 </resources>

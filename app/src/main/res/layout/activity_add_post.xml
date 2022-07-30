@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
+        android:onClick="addPost"
         android:text="Add Post"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +52,7 @@
         app:layout_constraintVertical_bias="0.679" />
 
     <EditText
-        android:id="@+id/addPostDescriptionEditText"
+        android:id="@+id/lastSeenDescriptionEditText"
         android:layout_width="366dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -81,7 +82,7 @@
         app:layout_constraintVertical_bias="0.54" />
 
     <EditText
-        android:id="@+id/addPostLostItemName"
+        android:id="@+id/lastSeenLostItemName"
         android:layout_width="366dp"
         android:layout_height="48dp"
         android:ems="10"

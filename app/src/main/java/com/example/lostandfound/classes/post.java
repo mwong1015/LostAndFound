@@ -7,6 +7,9 @@ public class post {
     String description;
     String location; // actual location of the lost item input by another user
 
+    public post(){
+
+    }
     public post(String ownerID, String lastSeenLocation, String description, String location) {
         this.ownerID = ownerID;
         this.lastSeenLocation = lastSeenLocation;
