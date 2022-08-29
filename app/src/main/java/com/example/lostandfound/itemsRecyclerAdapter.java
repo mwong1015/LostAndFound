@@ -14,12 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lostandfound.Activities.ItemProfileActivity;
 import com.example.lostandfound.classes.lostItem;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -58,6 +55,14 @@ public class itemsRecyclerAdapter extends RecyclerView.Adapter<itemsRecyclerView
             }
         });
         holder.itemName.setText(lostItemList.get(position).getDescription());
+        try{
+            if(!(lostItemList.get(position).getOwner().equals(null))){
+                holder.ownerName.setText("Owner: "+lostItemList.get(position).getOwner());
+            }
+        }
+        catch(Exception E){
+
+        }
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

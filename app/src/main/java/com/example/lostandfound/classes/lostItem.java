@@ -7,16 +7,18 @@ public class lostItem implements Serializable{
     String location;
     String description;
     String UUID;
+    String owner;
     String claimerID;
     String dateTime;
 
     public lostItem() {
 
     }
-    public lostItem(String type, String location, String description, String UUID, String claimerID, String dateTime) {
+    public lostItem(String type, String location, String description, String owner, String UUID, String claimerID, String dateTime) {
         this.type = type;
         this.location = location;
         this.description = description;
+        this.owner = owner;
         this.UUID = UUID;
         this.claimerID = claimerID;
         this.dateTime = dateTime;
@@ -68,4 +70,11 @@ public class lostItem implements Serializable{
         this.UUID = UUID;
     }
 
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 }

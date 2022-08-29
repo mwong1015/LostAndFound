@@ -16,6 +16,9 @@
             android:name=".Activities.postProfileActivity"
             android:exported="true" />
         <activity
+            android:name=".Activities.postBoardActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activities.ItemProfileActivity"
             android:exported="true" />
         <activity

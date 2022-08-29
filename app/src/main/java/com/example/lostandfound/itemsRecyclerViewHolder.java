@@ -13,12 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class itemsRecyclerViewHolder extends RecyclerView.ViewHolder {
     protected ImageView itemPhoto;
     protected TextView itemName;
+    protected TextView ownerName;
     Context mContext;
     ConstraintLayout parentLayout;
 
     public itemsRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         mContext = itemView.getContext();
+        ownerName = itemView.findViewById(R.id.ownerNameTextView);
         itemPhoto = itemView.findViewById(R.id.itemPhoto);
         itemName = itemView.findViewById(R.id.itemNameTextView);
         parentLayout = itemView.findViewById(R.id.parentLayout);

@@ -31,6 +31,7 @@ public class addPostActivity extends AppCompatActivity {
     EditText lastSeenLocationEditText;
     EditText lastSeenDescriptionEditText;
     String UUIDref;
+    post newPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,23 +47,28 @@ public class addPostActivity extends AppCompatActivity {
         submitPostButton = findViewById(R.id.submitPostButton);
     }
     public void addPost(View v) {
-        Date dateNow = new Date();
-        SimpleDateFormat dateForm = new SimpleDateFormat("MM/dd/Y HH:mm");
-        String dateString = dateForm.format(dateNow);
-
-        post newPost = new post(currentUser.getProviderId(), lastSeenLocationEditText.getText().toString(), lastSeenDescriptionEditText.getText().toString(),null);
-        fireStore.collection("Post").document(UUIDref).set(newPost).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(addPostActivity.this, "Item added", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(addPostActivity.this, homeActivity.class));
-            }
-        })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(addPostActivity.this, "Item add failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        if ((lostItemNameEditText.getText().toString().equals("")) || (lastSeenLocationEditText.getText().toString().equals(""))|| (lastSeenDescriptionEditText.getText().toString().equals(""))) { // owner didn't fill in all the fields
+            Toast.makeText(addPostActivity.this, "Please fill in all the required fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else{
+            Date dateNow = new Date();
+            SimpleDateFormat dateForm = new SimpleDateFormat("MM/dd/Y HH:mm");
+            String dateString = dateForm.format(dateNow);
+            newPost = new post(currentUser.getEmail(), lostItemNameEditText.getText().toString(), lastSeenLocationEditText.getText().toString(), lastSeenDescriptionEditText.getText().toString(), null, dateString, UUIDref);
+            fireStore.collection("Post").document(UUIDref).set(newPost).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(addPostActivity.this, "Post added", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(addPostActivity.this, homeActivity.class));
+                }
+            })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(addPostActivity.this, "Item add failed", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 }

@@ -10,5 +10,6 @@
         android:layout_width="82dp"
         android:layout_height="69dp"
         android:text="Add"
+        android:textColor="#C8B38D"
         android:textSize="20sp" />
 </FrameLayout>

@@ -4,13 +4,16 @@ public class user {
 
     String id;
     String gmail;
+    String name;
 
     public user(){
 
     }
-    public user(String id, String gmail) {
+    public user(String id, String gmail, String name) {
         this.id = id;
         this.gmail = gmail;
+        this.name = name;
+
     }
 
     public String getId() {

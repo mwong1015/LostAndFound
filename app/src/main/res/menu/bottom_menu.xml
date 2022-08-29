@@ -5,12 +5,15 @@
     <item android:id="@+id/secondFragment"
           android:title="Post"
           android:icon="@drawable/ic_posts"
+          android:tint="#C8B38D"
           app:itemIconSize="100dp"/>
     <item android:id="@+id/firstFragment"
+        android:tint="#C8B38D"
         android:title="Home"
         android:icon="@drawable/ic_home"
         app:itemIconSize="100dp"/>
     <item android:id="@+id/thirdFragment"
+          android:tint="#C8B38D"
           android:title="Add"
           android:icon="@drawable/ic_add"
           app:itemIconSize="100dp" />

@@ -14,9 +14,13 @@ import android.widget.Button;
 import com.example.lostandfound.R;
 import com.example.lostandfound.classes.lostItem;
 import com.example.lostandfound.itemsRecyclerAdapter;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -28,22 +32,27 @@ import java.util.Comparator;
 
 public class homeActivity extends AppCompatActivity{
     RecyclerView itemsRecycler;
-    Button refreshButton;
     itemsRecyclerAdapter itemsAdapter;
     BottomNavigationView navigationBar;
     ArrayList<lostItem> lostItems = new ArrayList<lostItem>();;
     ArrayList<lostItem> itemsSortedByTime;
     FirebaseFirestore fireStore;
+    FirebaseAuth firebaseAuth;
+    GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         fireStore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("843476618997-jcpcg1ivathbnoead2fgn7mitjl7a00p.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
 
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         itemsRecycler = findViewById(R.id.itemsRecyclerView);
-        refreshButton = findViewById(R.id.refreshButton);
-
         navigationBar = findViewById(R.id.navigationView);
         navigationBar.setSelectedItemId(R.id.firstFragment);
         navigationBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -90,14 +99,24 @@ public class homeActivity extends AppCompatActivity{
         });
     }
     public void onClickValuables(View v){
-        Intent intent = new Intent(homeActivity.this, itemListActivity.class);
+        Intent intent = new Intent(this, itemListActivity.class);
         intent.putExtra("Type", "Valuables");
         startActivity(intent);
         // let the item list activity know what type of items to get from firebase and display
     }
     public void onClickNonValuables(View v){
-        Intent intent = new Intent(homeActivity.this, moreTypesActivity.class);
+        Intent intent = new Intent(this, moreTypesActivity.class);
         startActivity(intent);
+    }
+    public void onClickLogOut(View v){
+        firebaseAuth.signOut();
+        mGoogleSignInClient.signOut().addOnCompleteListener(this,
+                new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        startActivity(new Intent(homeActivity.this, loginActivity.class));
+                    }
+                });
     }
 
 

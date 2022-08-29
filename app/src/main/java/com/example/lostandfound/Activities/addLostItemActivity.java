@@ -40,11 +40,13 @@ public class addLostItemActivity extends AppCompatActivity implements AdapterVie
     Spinner typeSpinner;
     EditText locationEditText;
     EditText descriptionEditText;
+    EditText ownerNameEditText;
     TextView cameraTextView;
     Button cameraButton;
     Button confirmButton;
     FirebaseFirestore fireStore;
     BottomNavigationView navigationBar;
+    lostItem item;
 
     public Uri mImageUri;
     private FirebaseStorage storage;
@@ -74,6 +76,7 @@ public class addLostItemActivity extends AppCompatActivity implements AdapterVie
         typeSpinner.setAdapter(adapter);
         typeSpinner.setOnItemSelectedListener(this);
         locationEditText = findViewById(R.id.lostItemLocationEditText);
+        ownerNameEditText = findViewById(R.id.ownerNameEditText);
         descriptionEditText = findViewById(R.id.lostItemDescriptionEditText);
         cameraTextView = findViewById(R.id.cameraTextView);
         cameraButton = findViewById(R.id.cameraButton);
@@ -100,10 +103,7 @@ public class addLostItemActivity extends AppCompatActivity implements AdapterVie
                 return false;
             }
         });
-
-
     }
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         type = adapterView.getItemAtPosition(i).toString();
@@ -115,24 +115,36 @@ public class addLostItemActivity extends AppCompatActivity implements AdapterVie
     }
 
     public void addLostItem(View v) {
-        Date dateNow = new Date();
-        SimpleDateFormat dateForm = new SimpleDateFormat("MM/dd/Y HH:mm");
-        String dateString = dateForm.format(dateNow);
-        lostItem item = new lostItem(type, locationEditText.getText().toString(), descriptionEditText.getText().toString(), UUIDref, "", dateString);
-        uploadToFirebase(bb);
-        fireStore.collection("Lost Items").document(UUIDref).set(item).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(addLostItemActivity.this, "Item added", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(addLostItemActivity.this, homeActivity.class));
-            }
-        })
-                .addOnFailureListener(new OnFailureListener() {
+        try {
+            Date dateNow = new Date();
+            SimpleDateFormat dateForm = new SimpleDateFormat("MM/dd/Y HH:mm");
+            String dateString = dateForm.format(dateNow);
+            if ((locationEditText.getText().toString().equals("")) || (descriptionEditText.getText().toString().equals(""))) { // owner didn't fill in all the fields
+                Toast.makeText(addLostItemActivity.this, "Please fill in all the required fields", Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                item = new lostItem(type, locationEditText.getText().toString(), descriptionEditText.getText().toString(), ownerNameEditText.getText().toString(), UUIDref, "", dateString);
+                uploadToFirebase(bb);
+                fireStore.collection("Lost Items").document(UUIDref).set(item).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(addLostItemActivity.this, "Item add failed", Toast.LENGTH_SHORT).show();
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(addLostItemActivity.this, "Item added", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(addLostItemActivity.this, homeActivity.class));
                     }
-                });
+                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(addLostItemActivity.this, "Item add failed", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        }
+        catch(Exception E){
+            Toast.makeText(addLostItemActivity.this, "Please take a photo of the item", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
     }
 
     public void takePhoto(View v) {
